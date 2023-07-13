@@ -24,7 +24,6 @@ const createGrid = (number = null) => {
     boxNumber.appendChild(p);
     tableSection.appendChild(boxNumber);
   }
-  console.log(tabella);
 };
 
 const pickNumber = () => {
@@ -34,10 +33,11 @@ const pickNumber = () => {
 numberRandomButton.addEventListener("click", () => {
   const num = pickNumber();
   if (!numTrovati.includes(num)) {
-    numTrovati.push(pickNumber);
+    numTrovati.push(num);
     createGrid(num);
   } else {
     console.log("NUMERO GIA USCITO");
   }
+  //   console.log(numTrovati);
 });
 createGrid();
