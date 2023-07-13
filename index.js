@@ -1,7 +1,7 @@
 //
+const numberRandomButton = document.getElementById("randomNumber");
 /*SELEZIONO GLI ELEMENTI PER LA TABELLA DI GIOCO */
 const tableSection = document.getElementById("tabella");
-const numberRandomButton = document.getElementById("randomNumber");
 const tabella = [];
 const numTrovati = [];
 const tabelloneNumber = 76;
@@ -10,7 +10,6 @@ const tabelloneNumber = 76;
 const tableSectionPlayer = document.getElementById("tabellaGiocatore");
 const tabellaGiocatore = [];
 const numTrovatiGiocatore = [];
-console.log(tabellaGiocatore);
 /*--------------------------------FINE VARIBAILI GLOBALI---------------------------*/
 
 /*FUNZIONE CHE MI CREA LA TABELLA CON L'ELEMENO PRESO SE C'è */
