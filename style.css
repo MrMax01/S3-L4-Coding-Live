@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* #26547C */
+/* #EF476F */
+body {
+  margin: 0;
+  text-align: center;
+}
+div {
+  display: inline-block;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+p {
+  text-align: center;
+  margin: auto 0;
+}
+
+.showNumber {
+  background-color: #ef476f;
+}
