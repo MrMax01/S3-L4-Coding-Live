@@ -56,7 +56,7 @@ const createGridPlayer = (number = null) => {
       // console.log(boxNumber);
       const p = document.createElement("p");
       const num = pickNumber();
-      if (numTrovatiGiocatore.includes[num]) {
+      if (numTrovatiGiocatore.includes(num)) {
         i--;
       } else {
         numTrovatiGiocatore.push(num);
