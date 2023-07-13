@@ -9,6 +9,7 @@ const tabelloneNumber = 76;
 /*SELEZIONO GLI ELEMENTI PER LA TABELLA DEL GIOCATORE */
 const tableSectionPlayer = document.getElementById("tabellaGiocatore");
 const tabellaGiocatore = [];
+const numTrovatiGiocatore = [];
 console.log(tabellaGiocatore);
 /*--------------------------------FINE VARIBAILI GLOBALI---------------------------*/
 
@@ -32,17 +33,43 @@ const createGrid = (number = null) => {
     tableSection.appendChild(boxNumber);
   }
 };
+
 /*CREO LA TABELLA DEL GIOCATORE */
-const createGridPlayer = () => {
-  for (let i = 0; i < 24; i++) {
-    const boxNumber = document.createElement("div");
-    // console.log(boxNumber);
-    const p = document.createElement("p");
-    p.innerText = pickNumber();
-    boxNumber.appendChild(p);
-    tableSectionPlayer.appendChild(boxNumber);
+const createGridPlayer = (number = null) => {
+  tableSectionPlayer.innerHTML = "";
+
+  if (tabellaGiocatore.length > 0) {
+    for (let i = 0; i < tabellaGiocatore.length; i++) {
+      const boxNumber = document.createElement("div");
+      // console.log(boxNumber);
+      const p = document.createElement("p");
+      p.innerText = tabellaGiocatore[i].num;
+      if (number === tabellaGiocatore[i].num || tabellaGiocatore[i].flag) {
+        boxNumber.classList.add("showNumber");
+        tabellaGiocatore[i].flag = true;
+      }
+      boxNumber.appendChild(p);
+      tableSectionPlayer.appendChild(boxNumber);
+    }
+  } else {
+    for (let i = 0; i < 24; i++) {
+      const boxNumber = document.createElement("div");
+      // console.log(boxNumber);
+      const p = document.createElement("p");
+      const num = pickNumber();
+      if (numTrovatiGiocatore.includes[num]) {
+        i--;
+      } else {
+        numTrovatiGiocatore.push(num);
+        tabellaGiocatore.push({ num: num, flag: false });
+        p.innerText = num;
+        boxNumber.appendChild(p);
+        tableSectionPlayer.appendChild(boxNumber);
+      }
+    }
   }
 };
+
 /*FUNZIONE CHE MI RITORNA UN NUMERO CASUALE TRA 1 E 76 */
 const pickNumber = () => {
   return Math.floor(Math.random() * 77 + 1);
@@ -54,6 +81,7 @@ numberRandomButton.addEventListener("click", () => {
   if (!numTrovati.includes(num)) {
     numTrovati.push(num);
     createGrid(num);
+    createGridPlayer(num);
   } else {
     console.log("NUMERO GIA USCITO");
   }
